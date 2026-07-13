@@ -57,50 +57,13 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,,,,
+            //スクロール方向を逆転,,,,,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        ZenkakuHankaku {
-            bindings = <&kp GRAVE>;
-            key-positions = <11 12>;
-        };
-
-        DeleteKey {
-            bindings = <&kp DEL>;
-            key-positions = <7 8>;
-        };
-
-        InsertKey {
-            bindings = <&kp INS>;
-            key-positions = <6 7>;
-        };
-
-        CenterClick {
-            bindings = <&mkp MB3>;
-            key-positions = <17 16>;
-        };
-
-        RightClick {
-            bindings = <&mkp MB2>;
-            key-positions = <18 17>;
-        };
-
-        PrevClick {
-            bindings = <&mkp MB4>;
-            key-positions = <27 28>;
-        };
-
-        ClickNext {
-            bindings = <&mkp MB5>;
-            key-positions = <26 27>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     behaviors {
         re_kp: sensor_rotate_kp {
@@ -122,6 +85,70 @@
             label = "TD_Q_ESC";
             #binding-cells = <0>;
             bindings = <&kp Q>, <&kp ESC>;
+        };
+
+        tog_on: toggle_layer_on_only {
+            compatible = "zmk,behavior-toggle-layer";
+            label = "Toggle Layer ON";
+            #binding-cells = <1>;
+        };
+
+        tog_off: toggle_layer_off_only {
+            compatible = "zmk,behavior-toggle-layer";
+            label = "Toggle Layer Off";
+            #binding-cells = <1>;
+            toggle-mode = "off";
+        };
+    };
+
+    macros {
+        bt0: bt0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&tog_off 1>,
+                <&macro_wait_time 200>,
+                <&bt BT_SEL 0>,
+                <&macro_wait_time 500>;
+
+            label = "BT0";
+        };
+
+        bt1: bt1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&tog_off 1>,
+                <&macro_wait_time 200>,
+                <&bt BT_SEL 1>,
+                <&macro_wait_time 500>,
+                <&tog_on 1>;
+
+            label = "BT1";
+        };
+
+        bt2: bt2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&tog_off 1>,
+                <&macro_wait_time 200>,
+                <&bt BT_SEL 2>,
+                <&macro_wait_time 500>;
+
+            label = "BT2";
+        };
+
+        bt3: bt3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&tog_off 1>,
+                <&macro_wait_time 200>,
+                <&bt BT_SEL 3>,
+                <&macro_wait_time 500>;
+
+            label = "BT3";
         };
     };
 
@@ -195,6 +222,15 @@
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        ADJUST {
+            if-layers = <2 3>;
+            then-layer = <6>;
         };
     };
 };
