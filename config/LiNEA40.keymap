@@ -57,7 +57,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,
+            //スクロール方向を逆転,,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -130,10 +130,10 @@
 
         MAC_LAYER {
             bindings = <
-&tdQE       &kp W  &kp E  &kp R             &kp T                                                 &kp Y             &kp U  &lt 6 I    &kp O    &kp P
-&kp A       &kp S  &kp D  &kp F             &kp G                                                 &kp H             &kp J  &kp K      &kp L    &lt 6 MINUS
+&tdQE       &kp W  &kp E  &kp R             &kp T                                                 &kp Y             &kp U  &lt 5 I    &kp O    &kp P
+&kp A       &kp S  &kp D  &kp F             &kp G                                                 &kp H             &kp J  &kp K      &kp L    &lt 5 MINUS
 &mt LALT Z  &kp X  &kp C  &kp V             &kp B                                                 &kp N             &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&none       &none  &none  &mt LEFT_WIN TAB  &lt 2 LANGUAGE_2  &mt LSHFT SPACE    &mt LCTRL ENTER  &lt 6 LANGUAGE_1         &none      &none    &kp BACKSPACE
+&none       &none  &none  &mt LEFT_WIN TAB  &lt 2 LANGUAGE_2  &mt LSHFT SPACE    &mt LCTRL ENTER  &lt 5 LANGUAGE_1         &none      &none    &kp BACKSPACE
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
@@ -141,10 +141,10 @@
 
         WIN_LAYER {
             bindings = <
-&tdQE       &kp W  &kp E  &kp R          &kp T                                                          &kp Y                  &kp U  &lt 6 I    &kp O    &kp P
-&kp A       &kp S  &kp D  &kp F          &kp G                                                          &kp H                  &kp J  &kp K      &kp L    &lt 6 MINUS
+&tdQE       &kp W  &kp E  &kp R          &kp T                                                          &kp Y                  &kp U  &lt 5 I    &kp O    &kp P
+&kp A       &kp S  &kp D  &kp F          &kp G                                                          &kp H                  &kp J  &kp K      &kp L    &lt 5 MINUS
 &mt LALT Z  &kp X  &kp C  &kp V          &kp B                                                          &kp N                  &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&none       &none  &none  &mt LCTRL TAB  &lt 2 INTERNATIONAL_5  &mt LSHFT SPACE    &mt RIGHT_WIN ENTER  &lt 6 INTERNATIONAL_4         &none      &none    &kp BACKSPACE
+&none       &none  &none  &mt LCTRL TAB  &lt 2 INTERNATIONAL_5  &mt LSHFT SPACE    &mt RIGHT_WIN ENTER  &lt 5 INTERNATIONAL_4         &none      &none    &kp BACKSPACE
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
@@ -168,35 +168,22 @@
             >;
         };
 
-        FUNCTION {
-            bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4   &kp F5                     &trans      &trans  &kp LA(PRINTSCREEN)  &trans  &kp LC(LA(DELETE))
-&kp F6  &kp F7  &kp F8  &kp F9   &kp F10                    &trans      &trans  &kp LS(LG(S))        &trans  &kp LC(LS(ESCAPE))
-&trans  &trans  &trans  &kp F11  &kp F12                    &kp C_MUTE  &trans  &trans               &trans  &kp LC(LA(INS))
-&trans  &trans  &trans  &trans   &trans   &trans    &trans  &trans              &trans               &trans  &trans
-            >;
-
-            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
-        };
-
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                    &trans  &mkp MB1  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans            &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                    &trans  &trans    &mkp MB3  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                    &trans  &mkp MB1  &mkp MB2  &mo 5   &trans
+&trans  &trans  &trans  &trans  &trans                    &trans  &mkp MB4  &mkp MB5  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans            &trans    &trans  &trans
             >;
         };
 
         SCROLL {
             bindings = <
-&trans    &kp LC(LG(LEFT_ARROW))  &kp UP_ARROW  &kp LC(LG(RIGHT_ARROW))  &trans                    &kp KP_MULTIPLY  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp KP_PLUS
-&trans    &kp LEFT_ARROW          &kp DOWN      &kp RIGHT_ARROW          &trans                    &kp KP_SLASH     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp KP_MINUS
-&kp HOME  &kp PAGE_DOWN           &kp END       &kp PAGE_UP              &trans                    &kp UNDER        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ENTER
-&trans    &trans                  &trans        &trans                   &trans  &trans    &trans  &kp NUMBER_0                   &kp NUMBER_0  &kp DOT       &kp QUESTION
+&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans          &trans  &trans  &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW>;
         };
 
         WIRELESS {
