@@ -57,7 +57,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,,,,,,,,
+            //スクロール方向を逆転,,,,,,,,,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -182,7 +182,7 @@
 &kp EXCLAMATION  &kp LBKT  &kp HASH  &kp DOLLAR  &kp PERCENT                  &kp EQUAL  &kp CARET  &kp PLUS   &kp UNDER  &kp LS(INTERNATIONAL_3)
 &kp STAR         &kp LPAR  &kp RBRC  &kp PIPE    &kp AT                       &kp COLON  &kp DQT    &kp SEMI   &kp SQT    &kp INT3
 &kp LT           &kp GT    &kp RBKT  &kp BSLH    &kp AMPS                     &kp MINUS  &kp SLASH  &kp COMMA  &kp DOT    &kp LS(INT1)
-&none            &none     &none     &none       &none        &none    &none  &none                 &none      &none      &none
+&none            &none     &none     &none       &trans       &none    &none  &trans                &none      &none      &none
             >;
         };
 
@@ -191,34 +191,34 @@
 &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5                  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0
 &kp F2        &kp F4        &kp F6        &kp F7        &kp F10                       &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp SQT
 &kp F12       &none         &none         &none         &none                         &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp SLASH
-&none         &none         &none         &none         &none         &none    &none  &none                       &none         &none         &kp DEL
+&none         &none         &none         &none         &trans        &none    &none  &trans                      &none         &none         &kp DEL
             >;
         };
 
         MOUSE {
             bindings = <
-&none  &none  &none  &none  &none                  &none  &none     &mkp MB3  &none  &none
-&none  &none  &none  &none  &none                  &none  &mkp MB1  &mkp MB2  &mo 5  &none
-&none  &none  &none  &none  &none                  &none  &mkp MB4  &mkp MB5  &none  &none
-&none  &none  &none  &none  &none  &none    &none  &none            &none     &none  &none
+&none  &none  &none  &none  &none                   &none   &none     &mkp MB3  &none  &none
+&none  &none  &none  &none  &none                   &none   &mkp MB1  &mkp MB2  &mo 5  &none
+&none  &none  &none  &none  &none                   &none   &mkp MB4  &mkp MB5  &none  &none
+&none  &none  &none  &none  &trans  &none    &none  &trans            &none     &none  &none
             >;
         };
 
         SCROLL {
             bindings = <
-&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none    &none  &none         &none  &none  &none
+&none  &none  &none  &none  &none                   &none   &none  &none  &none  &none
+&none  &none  &none  &none  &none                   &none   &none  &none  &none  &none
+&none  &none  &none  &none  &none                   &none   &none  &none  &none  &none
+&none  &none  &none  &none  &trans  &none    &none  &trans         &none  &none  &none
             >;
         };
 
         ADJUST {
             bindings = <
-&kp ESC          &bt0   &bt1   &bt2           &bt3                       &none  &none  &none  &none  &bt BT_CLR
-&kp LC(LA(DEL))  &none  &none  &none          &none                      &none  &none  &none  &none  &none
-&kp LS(LC(ESC))  &none  &none  &kp LS(LG(S))  &kp LG(L)                  &none  &none  &none  &none  &none
-&none            &none  &none  &none          &none      &none    &none  &none         &none  &none  &none
+&kp ESC          &bt0   &bt1   &bt2           &bt3                       &none   &none  &none  &none  &bt BT_CLR
+&kp LC(LA(DEL))  &none  &none  &none          &none                      &none   &none  &none  &none  &none
+&kp LS(LC(ESC))  &none  &none  &kp LS(LG(S))  &kp LG(L)                  &none   &none  &none  &none  &none
+&none            &none  &none  &none          &trans     &none    &none  &trans         &none  &none  &none
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
