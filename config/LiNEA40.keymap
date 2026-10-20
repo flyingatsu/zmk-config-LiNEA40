@@ -57,7 +57,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,,,,,,,
+            //スクロール方向を逆転,,,,,,,,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -109,7 +109,8 @@
                 <&tog_off 1>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 0>,
-                <&macro_wait_time 500>;
+                <&macro_wait_time 500>,
+                <&tog_on 1>;
 
             label = "BT0";
         };
@@ -121,8 +122,7 @@
                 <&tog_off 1>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 1>,
-                <&macro_wait_time 500>,
-                <&tog_on 1>;
+                <&macro_wait_time 500>;
 
             label = "BT1";
         };
@@ -155,23 +155,23 @@
     keymap {
         compatible = "zmk,keymap";
 
-        MAC_LAYER {
-            bindings = <
-&tdQE       &kp W  &kp E  &kp R             &kp T                                                 &kp Y             &kp U  &lt 5 I    &kp O    &kp P
-&kp A       &kp S  &kp D  &lt 4 F           &kp G                                                 &kp H             &kp J  &kp K      &kp L    &lt 4 MINUS
-&mt LALT Z  &kp X  &kp C  &kp V             &kp B                                                 &kp N             &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&none       &none  &none  &mt LEFT_WIN TAB  &lt 2 LANGUAGE_2  &mt LSHFT SPACE    &mt LCTRL ENTER  &lt 3 LANGUAGE_1         &none      &none    &kp BACKSPACE
-            >;
-
-            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
-        };
-
         WIN_LAYER {
             bindings = <
 &tdQE       &kp W  &kp E  &kp R          &kp T                                                          &kp Y                  &kp U  &lt 5 I    &kp O    &kp P
 &kp A       &kp S  &kp D  &lt 4 F        &kp G                                                          &kp H                  &kp J  &kp K      &kp L    &lt 4 MINUS
 &mt LALT Z  &kp X  &kp C  &kp V          &kp B                                                          &kp N                  &kp M  &kp COMMA  &kp DOT  &kp SLASH
 &none       &none  &none  &mt LCTRL TAB  &lt 2 INTERNATIONAL_5  &mt LSHFT SPACE    &mt RIGHT_WIN ENTER  &lt 3 INTERNATIONAL_4         &none      &none    &kp BACKSPACE
+            >;
+
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
+        };
+
+        MAC_LAYER {
+            bindings = <
+&tdQE       &kp W  &kp E  &kp R             &kp T                                                 &kp Y             &kp U  &lt 5 I    &kp O    &kp P
+&kp A       &kp S  &kp D  &lt 4 F           &kp G                                                 &kp H             &kp J  &kp K      &kp L    &lt 4 MINUS
+&mt LALT Z  &kp X  &kp C  &kp V             &kp B                                                 &kp N             &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&none       &none  &none  &mt LEFT_WIN TAB  &lt 2 LANGUAGE_2  &mt LSHFT SPACE    &mt LCTRL ENTER  &lt 3 LANGUAGE_1         &none      &none    &kp BACKSPACE
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
